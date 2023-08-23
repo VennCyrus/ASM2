@@ -1,0 +1,53 @@
+@model IEnumerable<FPTBOOK_STORE.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-12 col-lg-10 col-xxl-12 d-flex">
+        <div class="card flex-fill">
+            <div class="card-header">
+
+                <h5 class="card-title mb-0">Category List</h5>
+            </div>
+            <table class="table table-hover my-0" style="margin-left:10px ;">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>Status</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            @if (item.Status == 0)
+                            {
+                                <td><span class="badge bg-warning">In progress</span></td>
+                            }
+                            else if (item.Status == 1)
+                            {
+                                <td><span class="badge bg-success">Accept</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="badge bg-danger">Reject</span></td>
+                            }
+                            <td>
+                                <a asp-action="EditAdmin" asp-route-id="@item.Id" class="btn btn-success"
+                                style="font-size:7px ;"><i class="fa-sharp fa-solid fa-pen-to-square"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

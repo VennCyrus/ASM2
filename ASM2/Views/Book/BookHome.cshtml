@@ -1,0 +1,171 @@
+@model FPTBOOK_STORE.Models.BookCategoryViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<div style = "margin-top:65px;">
+
+</div>
+<!-- Start Banner Hero -->
+   @* <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-tartopte-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner"     >
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="~/img/1. Harry-Potter.png" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1"><strong>Harry Potter</strong></h1>
+                                <h3 class="h2">A series of seven fantasy novels written by British author J. K. Rowling</h3>
+                                <p style = "text-align: justify;">
+                                    The novels chronicle the lives of a young wizard, 
+                                    Harry Potter, and his friends Hermione Granger and Ron Weasley, 
+                                    all of whom are students at Hogwarts School of Witchcraft and Wizardry. 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="~/img/2- conan.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1"><strong>Conan Limited 100</strong></h1>
+                                <h3 class="h2">Finally, Conan's journey to solve the case has crossed the 100-volume mark.</h3>
+                                <p style = "text-align: justify;">
+                                    On the occasion of the 65th anniversary of establishment 
+              color           Kim Dong Publishing House has spent a lot of investment and care 
+                                    for the 100th collection of stories about Conan with 3 editions 
+                                    being released at the same time.
+                                </p>
+                            </div>
+margin-bottom            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="~/img/3. Book.jpg" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1"><strong>The Twilight Saga</strong></h1>
+                                <h3 class="h2">Sale up 20%</h3>
+                                <p style = "text-align: justify;">
+                                    Twilight is a series of four fantasy romance novels, two companion novels,
+                                    and one novella written by American author Stephenie Meyer.
+                                    Released annually from 2005 through 2008, the four novels chart the later teen years of Bella Swan, 
+                                    a girl who moves to Forks, Washington, from Phoenix, Arizona, 
+                                    and falls in love with a 104-year-old vampire named Edward Cullen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>*@
+    <!-- End Banner Hero -->
+
+<form asp-controller="Book" asp-action="BookHome" method="get">
+    <p>
+        <div class="search-box" style = "margin-left:13%; margin-top: 20px ">
+            @* <select asp-for="BookCategory" asp-items="Model.Categories" class ="search-txt" style ="background-color: #2f3640; color : white; margin-bottom: 5px;">
+            <option value="">Select Category</option>
+            </select> *@
+
+            <input type="text" class ="search-txt" asp-for="Search"  placeholder = "Type to search">
+            <button class = "search-btn" type = "submit" name = "submit"> <i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+    </p>
+</form>
+
+<div style="background-color: #ADADAD;">
+    <!-- Start Content -->
+    <div class="container py-5;" >
+        <div class="row">
+            @* <div class="col-lg-3">
+                <h1 class="h2 pb-4">Recommend Categories</h1>
+                <ul class="list-unstyled templatemo-accordion">
+                    <li class="pb-3">                
+                        <form asp-controller="Book" asp-action="BookHome" method="get">
+                        <p>
+                            <input asp-for="BookCategory" asp-items="Model.Categories" type = "hidden">
+                            <a href="/?BookCategory=Comedy&Search=" style = "text-decoration:none;">Comedy</a>
+                        </p>
+                    </form>
+                    </li>
+                    <li class="pb-3">                
+                        <form asp-controller="Book" asp-action="BookHome" method="get">
+                        <p>
+                            <input asp-for="BookCategory" asp-items="Model.Categories" type = "hidden">
+                            <a href="/?BookCategory=Fantasy&Search=" style = "text-decoration:none;">Fantasy</a>
+                        </p>
+                    </form>
+                    </li>
+                    <li class="pb-3">                
+                        <form asp-controller="Book" asp-action="BookHome" method="get">
+                        <p>
+                            <input asp-for="BookCategory" asp-items="Model.Categories" type = "hidden">
+                            <a href="/?BookCategory=Manga&Search=" style = "text-decoration:none;">Manga</a>
+                        </p>
+                    </form>
+                    </li>               
+                </ul>
+            </div> *@
+            @* <div class="col-lg-9"> *@
+                <div class="row" style = "margin-top:100px;">
+                    @foreach (var item in Model.Books)
+                    {
+                    <div class="col-md-3">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" style = "width: 100%; height: 250px;" src="~/uploads/@Html.DisplayFor(modelItem => item.UploadImage)">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a asp-action="Details" asp-route-id="@item.Id" class="btn btn-light"><i class="far fa-eye"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color: #B1A296;">
+                                <p class="text-center mb-0" style="margin-top: 10px">@Html.DisplayFor(modelItem => item.Name)</p>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                </ul>
+                                <p class="text-center mb-0" style="margin-top: 10px"> <strong>$@(item.Price)</strong></p>
+                            </div>
+                            <div class="text-center mb-0" style="background-color: #B1A296;">
+                                <form  asp-action="AddToCart" method="post">
+                                <input type="hidden" name="id" value="@item.Id"/>
+                                <input type="hidden" name="name" value="@item.Name"/>
+                                <input type="hidden" name="price" value="@item.Price"/>
+                                <input type="hidden" class="btn btn-light" style = "width: 125px; background-color:#B1A296; margin-bottom: 10px" name="quantity" min=1 value=1 placeholder="Quantity"/>
+                                <input type="submit" value="Add To Cart" class="btn btn-primary" style="margin-bottom: 10px; background-color: #B47349; border-color: #B47349"/>   
+                                </form>
+                            </div>
+                        </div>  
+                    </div>
+                    }
+            @* </div>    *@
+        </div>
+    </div>
+    </div>

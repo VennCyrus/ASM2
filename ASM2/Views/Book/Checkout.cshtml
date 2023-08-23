@@ -1,0 +1,63 @@
+@using FPTBOOK_STORE.Utils
+@{   
+    List<CartItem> myItems=(List<CartItem>)ViewData["myItems"];
+        double total=0;
+}
+@if(User.Identity.IsAuthenticated)
+{
+        @if((int)ViewData["itemCount"] > 0){
+        <table class="table table-striped" style = "margin-top:150px">
+        <tr><th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var item in myItems)
+        {
+            total += (item.Price)*item.Quantity;
+            <tr>
+                <form asp-action="EditOrder" method="post">
+                <td>@item.Name</td>
+                <td>@(item.Price)</td>
+                <td><input type="number" min="0" name="quantity" value="@item.Quantity"/></td>
+                <td>@((item.Price)*item.Quantity)</td>
+                <td>        
+                    <input type="hidden" name="id" value="@item.Id"/>        
+                    <input type="submit" value="Update" class="btn btn-primary"/>    
+                </td>
+                </form>
+                <td>
+                    <form asp-action="RemoveOrderItem" method="post">
+          
+                    <input type="hidden" name="id" value="@item.Id"/>        
+                    <input type="submit" value="Remove" class="btn btn-danger"/>    
+                    </form>
+                </td>
+            </tr>
+        }
+        <tr>
+                <td colspan="3">Total:</td>        
+                <td>@total</td>
+            </tr>
+        </table>
+
+    <form asp-action="PlaceOrder" asp-controller = "Order" method="post" style = "margin-bottom:150px">
+            <input type="hidden" name="total" value="@total"/>        
+            <input type="submit" value="Order" class="btn btn-primary"/>    
+        </form>
+    }
+    else
+    {
+        <table class="table table-striped" style = "margin-top:150px;margin-bottom:150px">
+        <tr><th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </table>
+    }
+}

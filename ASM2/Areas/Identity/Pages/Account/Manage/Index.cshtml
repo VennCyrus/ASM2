@@ -1,0 +1,59 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <main class="d-flex w-100">
+		<div class="container d-flex flex-column">
+			<div class="row vh-100">
+				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle">
+						<div class="card" style = "margin-top:-160px;">
+							<div class="card-body">
+								<div class="m-sm-4">
+									<form method="post" id = "profile-form" name = "form1" class="form-horizontal">
+										<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+										<div class="mb-3">
+                                            <input asp-for="Username" class="form-control" disabled />
+                                            <label asp-for="Username" class="form-label"></label>
+										</div>
+										<div class="mb-3">
+                                            <label asp-for="Input.Name" class="form-label"></label>
+                                            <input asp-for="Input.Name" class="form-control" />
+										</div>
+                                        <div class="mb-3">
+                                            <label asp-for="Input.DOB" class="form-label"></label>
+                                            <input asp-for="Input.DOB" class="form-control" />
+										</div>
+                                        <div class="mb-3">
+                                            <label asp-for="Input.Address" class="form-label"></label>
+                                            <input asp-for="Input.Address" class="form-control" />
+										</div>
+                                        <div class="mb-3">
+                                            <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                                            <input asp-for="Input.PhoneNumber" class="form-control" />
+                                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+										</div>
+										<div class="text-center mt-3">
+											<button id="update-profile-button" type="submit"  class="btn btn-dark">Save</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

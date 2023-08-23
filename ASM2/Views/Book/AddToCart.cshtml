@@ -1,0 +1,8 @@
+@using FPTBOOK_STORE.Utils
+@{
+    CartItem newItem=(CartItem)ViewData["newItem"];
+}
+<script language='javascript' type='text/javascript'>
+alert('Adding [@newItem.Name] successful. Quantity= @newItem.Quantity!');
+window.location.href='/';
+</script>

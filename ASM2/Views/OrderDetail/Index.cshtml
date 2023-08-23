@@ -1,0 +1,55 @@
+@model IEnumerable<FPTBOOK_STORE.Models.OrderDetail>
+@{
+    double total = 0;
+}
+
+<title>Oder Detail</title>
+<div class="row">
+    <div class="col-12 col-lg-10 col-xxl-12 d-flex">
+        <div class="card flex-fill">
+            <div class="card-header">
+
+                <h5 class="card-title mb-0">Order Detail</h5>
+                <h5 class="card-title mb-0"></h5>
+            </div>
+            <table class="table table-hover my-0" style="margin-left:10px;">
+                <thead>
+                    <tr>
+                        <th>
+                            Book
+                        </th>
+                        <th>
+                            Quantity
+                        </th>
+                        <td>Book Price</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        @if (item.OrderID == ViewBag.id)
+                        {
+
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Book.Name)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                                <td>@item.Book.Price</td>
+                            </tr>
+                            total += item.Quantity * item.Book.Price * 1.1;
+                        }
+                    }
+                </tbody>
+                <tbody style="background: Black;">
+                    <tr>
+                        <td style="font-weight: bold; color:white;">Total</td>
+                        <td></td>
+                        <td style="font-weight: bold; color:white;">@total</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

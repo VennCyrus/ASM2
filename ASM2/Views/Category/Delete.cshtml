@@ -1,0 +1,31 @@
+@model FPTBOOK_STORE.Models.Category
+
+<title>Delete Category</title>
+<div class="row">
+    <div class="col-12 col-lg-10 col-xxl-12 d-flex">
+        <div class="card flex-fill">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Delete Category </h5>
+            </div>
+            <div class="row" style="margin-left:10px">
+                <div class="col-md-6">
+                    <dl>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+                    </dl>
+                    <h4>Do you want to delete</h4>
+                    <form asp-action="Delete">
+                        <div class="form-group" style="margin-top:10px ;">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                            <a asp-action="Index" class="btn btn-primary">Back</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

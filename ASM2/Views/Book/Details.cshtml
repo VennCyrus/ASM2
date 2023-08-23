@@ -1,0 +1,49 @@
+@model FPTBOOK_STORE.Models.Book
+@using System.ComponentModel.DataAnnotations;
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div style = "margin-top: 70px;">
+<section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-6 mt-5">
+                    <div class="card mb-3">
+                        <img class="card-img img-fluid" src="~/uploads/@Html.DisplayFor(model => model.UploadImage)" alt="Card image cap" id="product-detail">
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-lg-5 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="h2"> @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h1>
+                            <p class="h3 py-2">@Html.DisplayNameFor(model => model.Price): @(Model.Price)  </p>             
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6>@Html.DisplayNameFor(model => model.Author)</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong> @Html.DisplayFor(model => model.Author.Name)</strong></p>
+                                </li>
+                            </ul>
+
+                            <h6>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)</h6>
+                            <h6>@Html.DisplayNameFor(model => model.Publisher):  @Html.DisplayFor(model => model.Publisher.Name)</h6>
+                            <h6>Description: @Html.DisplayFor(model => model.Description)</h6>
+                            <div style="text-align:center; Align:center;">
+                                <form asp-action="AddToCart" method="post">
+                                <input type="hidden" name="id" value="@Model.Id"/>
+                                <input type="hidden" name="name" value="@Model.Name"/>
+                                <input type="hidden" name="price" value="@Model.Price"/>
+                                <input type="number" class="btn btn-light" name="quantity" min=1 value=1 placeholder="Quantity"/>
+                                <input type="submit" value="Add To Cart" class="btn btn-primary"/>   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
